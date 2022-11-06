@@ -8,7 +8,7 @@ brailles = get_braille_chars()
 
 
 def main():
-    grapher = BrailleGrapher(text="abcde fghij klmno pqrst")
+    grapher = BrailleGrapher(text="1234567890")
 
     grapher.write_emboss()
 

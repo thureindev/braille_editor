@@ -60,7 +60,7 @@ def get_braille_chars(emboss_char='O', flat_char=' '):
 
         'cap': f"{f}{f}{f}_{f}{f}{e}",
 
-        'num': f"{f}{e}{e}_{f}{e}{e}",
+        'num': f"{f}{f}{e}_{e}{e}{e}",
 
         ' ': f"{f}{f}{f}_{f}{f}{f}",
 

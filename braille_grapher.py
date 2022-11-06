@@ -28,11 +28,17 @@ class BrailleGrapher:
 
     def write_emboss(self):
         for c in self.text:
-
             try:
-                braille_text = brailles[c]
+                if c.isupper():
+                    braille_text = f"{brailles['cap']}_{brailles[c.lower()]}"
+                elif c.isdigit():
+                    num = int(c)
+                    chars = "jabcdefghi"
+                    braille_text = f"{brailles['num']}_{brailles[chars[num]]}"
+                else:
+                    braille_text = brailles[c]
             except:
-                print("Error")
+                braille_text = brailles[" "]
             else:
                 pass
             finally:
@@ -51,7 +57,10 @@ class BrailleGrapher:
                     if letter == self.emboss:
                         self.grapher.pendown()
                         self.grapher.pencolor('black')
+                        self.grapher.fillcolor('black')
+                        self.grapher.begin_fill()
                         self.grapher.circle(5)
+                        self.grapher.end_fill()
                         self.grapher.penup()
                         print(letter)
                     else:
