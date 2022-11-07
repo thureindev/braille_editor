@@ -1,4 +1,5 @@
 import turtle
+import time
 import ui_settings as ui
 
 from braille_grapher import BrailleGrapher
@@ -8,17 +9,18 @@ brailles = get_braille_chars()
 
 
 def main():
-    grapher = BrailleGrapher(text="1234567890")
+    grapher = BrailleGrapher(text="pqrst uvwxy z .,!")
 
-    grapher.write_emboss()
+    # grapher.write_emboss()
+    screen.update()
 
-    user_text = input('Enter Text to Translate to Braille: ')
+    # user_text = input('Enter Text to Translate to Braille: ')
     # default line break is 30 chars
-    text_to_braille(user_text)
+    # text_to_braille(user_text)
 
 
 def text_to_braille(txt, line_break=30):
-    text = [*txt.lower()]
+    text = [txt.lower()]
     top_line = []
     mid_line = []
     bot_line = []
@@ -75,13 +77,12 @@ def text_to_braille(txt, line_break=30):
 
 if __name__ == '__main__':
     screen = turtle.Screen()
-    # screen.tracer(0)
-    # time.sleep(gs.CLOCK_TICK)
-    # screen.update()
+    screen.setup(ui.SCREEN_WIDTH, ui.SCREEN_HEIGHT)
+    screen.tracer(0)
+    time.sleep(ui.CLOCK_TICK)
 
     screen.title("Braille")
     screen.bgcolor("#F0F0F0")
 
-    screen.setup(ui.SCREEN_WIDTH, ui.SCREEN_HEIGHT)
     main()
     screen.exitonclick()

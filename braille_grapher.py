@@ -71,3 +71,4 @@ class BrailleGrapher:
                         print(letter)
 
                     self.grapher.sety(self.grapher.ycor() - 20)
+        print("done")
