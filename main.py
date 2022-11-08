@@ -2,6 +2,8 @@ import turtle
 import time
 import ui_settings as ui
 
+import dynamic_grid as dg
+
 from braille_grapher import BrailleGrapher
 from braille_chars import get_braille_chars
 
@@ -9,10 +11,12 @@ brailles = get_braille_chars()
 
 
 def main():
-    grapher = BrailleGrapher(text="pqrst uvwxy z .,!")
+    grapher = BrailleGrapher(text="abcde fghij klmno pqrst uvwxy z .,!")
 
-    # grapher.write_emboss()
-    screen.update()
+    translated = grapher.write_emboss()
+    # screen.update()
+
+    dg.start_grid(translated)
 
     # user_text = input('Enter Text to Translate to Braille: ')
     # default line break is 30 chars

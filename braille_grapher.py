@@ -2,7 +2,7 @@ from turtle import Turtle
 from braille_chars import get_braille_chars
 
 EMBOSS = "O"
-FLAT = " "
+FLAT = "-"
 
 brailles = get_braille_chars(emboss_char=EMBOSS, flat_char=FLAT)
 
@@ -27,6 +27,9 @@ class BrailleGrapher:
         self.grapher.speed(0)
 
     def write_emboss(self):
+
+        braille_emboss_blocks = []
+
         for c in self.text:
             try:
                 if c.isupper():
@@ -51,24 +54,18 @@ class BrailleGrapher:
 
             pos_y = 300
             self.grapher.setx(self.grapher.xcor() + 10)
-            for line in braille_lines:
+            for line in range(0, len(braille_lines), 2):
                 self.grapher.setpos(self.grapher.xcor() + 20, pos_y)
-                for letter in line:
-                    if letter == self.emboss:
-                        self.grapher.pendown()
-                        self.grapher.pencolor('black')
-                        self.grapher.fillcolor('black')
-                        self.grapher.begin_fill()
-                        self.grapher.circle(5)
-                        self.grapher.end_fill()
-                        self.grapher.penup()
-                        print(letter)
-                    else:
-                        self.grapher.pendown()
-                        self.grapher.pencolor('red')
-                        self.grapher.circle(1)
-                        self.grapher.penup()
-                        print(letter)
 
-                    self.grapher.sety(self.grapher.ycor() - 20)
+                line_char = ""
+
+                for i in range(0, 3):
+                    line_char += f"{braille_lines[line][i]}{braille_lines[line + 1][i]}\n"
+
+                # for letter in braille_lines[line]:
+                #     line_char += f"{letter}\n"
+
+                braille_emboss_blocks.append(line_char)
+
         print("done")
+        return braille_emboss_blocks
