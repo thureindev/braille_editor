@@ -1,4 +1,3 @@
-from turtle import Turtle
 from braille_chars import get_braille_chars
 
 EMBOSS = "O"
