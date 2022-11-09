@@ -31,8 +31,8 @@ class BrailleBlock(tk.Frame):
         # tk.Label(self, text="data\n" * 5).pack(pady=10)
 
 
-def start_grid(text_list):
-    root = tk.Tk()
+def start_grid(root, text_list):
+    # add frame
     frame = DynamicGrid(root)
     frame.pack(fill=tk.BOTH, expand=True)
 

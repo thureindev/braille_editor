@@ -1,6 +1,6 @@
 
 
-def get_braille_chars(emboss_char='O', flat_char='.'):
+def get_braille_chars(emboss_char, flat_char):
     e = f'{emboss_char}'
     f = f'{flat_char}'
     return {
